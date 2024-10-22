@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8hdrbc6a2n3u"]
+
+[ext_resource type="Script" path="res://scripts/pomodoro.gd" id="1_4hvr3"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("1_4hvr3")
+
+[node name="pomodoroActive" type="Timer" parent="Node"]
+one_shot = true
+
+[node name="pomodoroBreak" type="Timer" parent="Node"]
+one_shot = true
+
+[node name="startButton" type="Button" parent="Node"]
+offset_left = 483.0
+offset_top = 422.0
+offset_right = 717.0
+offset_bottom = 523.0
+theme_override_font_sizes/font_size = 42
+text = "Start"
+
+[node name="Label" type="Label" parent="Node"]
+offset_left = 507.0
+offset_top = 233.0
+offset_right = 679.0
+offset_bottom = 305.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="Node/pomodoroActive" to="Node" method="_on_pomodoro_active_timeout"]
+[connection signal="timeout" from="Node/pomodoroBreak" to="Node" method="_on_pomodoro_break_timeout"]
+[connection signal="pressed" from="Node/startButton" to="Node" method="_on_start_button_pressed"]
