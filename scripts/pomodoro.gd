@@ -12,24 +12,31 @@ var timeUp: bool
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("Active Session Length: " + str(activeSessionTime) + " secs")
-	print("Break Length: " + str(breakTime) + " secs")
-	timeUp = false
+	print("Break Length: " + str(breakTime / 60) + " secs")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	label.text = str(activeSessionTime)
 	if activeSessionTime == 0:
 		timeUp = true
+
+	if timeUp == true:
 		pomodoroActive.stop()
-	else:
-		pass
+		label.text = "It's time for your break!"
+		await get_tree().create_timer(5).timeout
+		label.text = str(breakTime)
+		print("Break Time")
+		
 
 func _on_pomodoro_active_timeout():
 	activeSessionTime -= 1
+	label.text = str(activeSessionTime)
 
 func _on_start_button_pressed():
 	pomodoroActive.start()
+	timeUp = false
 	var nodeToRemove = get_node('startButton')
 	nodeToRemove.queue_free()
 
 func _on_pomodoro_break_timeout():
-	pass # Replace with function body.
+	breakTime -= 1
