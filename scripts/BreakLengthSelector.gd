@@ -1,6 +1,6 @@
 extends Node
 
-@onready var error = get_node("GridContainer/error")
+@onready var error = get_node("/root/Control/error")
 
 var breakTime: int
 

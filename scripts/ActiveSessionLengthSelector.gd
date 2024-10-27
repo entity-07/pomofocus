@@ -1,10 +1,10 @@
 extends Node
 
-@onready var next_button = $nextButton
-@onready var fifteen_minutes = $fifteenMinutes
-@onready var twenty_five_minutes = $twentyFiveMinutes
-@onready var fifity_minutes = $fifityMinutes
-@onready var error = $error
+@onready var next_button = get_node("/root/Control/nextButton")
+@onready var fifteen_minutes = get_node("/root/Control/fifteenMinutes")
+@onready var twenty_five_minutes = get_node("/root/Control/twentyFiveMinutes")
+@onready var fifity_minutes = get_node("/root/Control/fiftyMinutes")
+@onready var error = get_node("/root/Control/error")
 
 var startTime = 0
 

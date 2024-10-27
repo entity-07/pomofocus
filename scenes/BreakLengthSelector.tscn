@@ -4,73 +4,83 @@
 
 [node name="Control" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Node" type="Node" parent="."]
+[node name="Manager" type="Node" parent="."]
 script = ExtResource("1_5mqyn")
 
-[node name="Label" type="Label" parent="Node"]
-offset_left = 415.0
-offset_top = 182.0
-offset_right = 727.0
-offset_bottom = 235.0
-size_flags_horizontal = 0
-size_flags_vertical = 6
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -157.0
+offset_top = -248.0
+offset_right = 155.0
+offset_bottom = -143.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "How long do you want your breaks to be"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="fiveMinutes" type="Button" parent="Node"]
-offset_left = 302.0
-offset_top = 276.0
-offset_right = 450.0
-offset_bottom = 342.0
-size_flags_horizontal = 0
-size_flags_vertical = 6
+[node name="fiveMinutes" type="Button" parent="."]
+layout_mode = 0
+offset_left = -272.0
+offset_top = -29.0
+offset_right = -99.0
+offset_bottom = 76.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "5 Minutes"
 
-[node name="tenMinutes" type="Button" parent="Node"]
-offset_left = 469.0
-offset_top = 276.0
-offset_right = 629.0
-offset_bottom = 343.0
-size_flags_horizontal = 0
-size_flags_vertical = 6
+[node name="tenMinutes" type="Button" parent="."]
+layout_mode = 0
+offset_left = -71.0
+offset_top = -29.0
+offset_right = 107.0
+offset_bottom = 76.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "10 Minutes"
 
-[node name="fifteenMinutes" type="Button" parent="Node"]
-offset_left = 658.0
-offset_top = 276.0
-offset_right = 813.0
-offset_bottom = 343.0
-size_flags_horizontal = 0
-size_flags_vertical = 6
+[node name="fifteenMinutes" type="Button" parent="."]
+layout_mode = 0
+offset_left = 139.0
+offset_top = -29.0
+offset_right = 304.0
+offset_bottom = 76.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "15 Minutes
 "
 
-[node name="startButton" type="Button" parent="Node"]
-offset_left = 450.0
-offset_top = 408.0
-offset_right = 682.0
-offset_bottom = 481.0
-size_flags_horizontal = 0
-size_flags_vertical = 6
+[node name="startButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -99.0
+offset_top = 121.0
+offset_right = 134.0
+offset_bottom = 225.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "Next"
 
-[node name="error" type="Label" parent="Node"]
-offset_left = 455.0
-offset_top = 486.0
-offset_right = 593.0
-offset_bottom = 548.0
+[node name="error" type="Label" parent="."]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 544.0
+offset_right = 732.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 text = "error"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="Node/fiveMinutes" to="Node" method="_on_five_minutes_pressed"]
-[connection signal="pressed" from="Node/tenMinutes" to="Node" method="_on_ten_minutes_pressed"]
-[connection signal="pressed" from="Node/fifteenMinutes" to="Node" method="_on_fifteen_minutes_pressed"]
-[connection signal="pressed" from="Node/startButton" to="Node" method="_on_start_button_pressed"]
+[connection signal="pressed" from="fiveMinutes" to="Manager" method="_on_five_minutes_pressed"]
+[connection signal="pressed" from="tenMinutes" to="Manager" method="_on_ten_minutes_pressed"]
+[connection signal="pressed" from="fifteenMinutes" to="Manager" method="_on_fifteen_minutes_pressed"]
+[connection signal="pressed" from="startButton" to="Manager" method="_on_start_button_pressed"]

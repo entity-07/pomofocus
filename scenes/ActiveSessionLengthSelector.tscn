@@ -2,71 +2,77 @@
 
 [ext_resource type="Script" path="res://scripts/ActiveSessionLengthSelector.gd" id="1_5pxe7"]
 
-[node name="ActiveSession" type="Control"]
+[node name="Control" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Master" type="Node" parent="."]
+[node name="Manager" type="Node" parent="."]
 script = ExtResource("1_5pxe7")
 
-[node name="Timer" type="Timer" parent="Master"]
-
-[node name="nextButton" type="Button" parent="Master"]
-offset_left = 505.0
-offset_top = 461.0
-offset_right = 643.0
-offset_bottom = 539.0
+[node name="nextButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -71.0
+offset_top = 137.0
+offset_right = 67.0
+offset_bottom = 215.0
 theme_override_font_sizes/font_size = 18
 text = "Next"
 
-[node name="fifteenMinutes" type="Button" parent="Master"]
-offset_left = 350.0
-offset_top = 342.0
-offset_right = 488.0
-offset_bottom = 420.0
+[node name="fifteenMinutes" type="Button" parent="."]
+layout_mode = 0
+offset_left = -226.0
+offset_top = 18.0
+offset_right = -88.0
+offset_bottom = 96.0
 theme_override_font_sizes/font_size = 18
 text = "15 Minutes"
 
-[node name="twentyFiveMinutes" type="Button" parent="Master"]
-offset_left = 505.0
-offset_top = 342.0
-offset_right = 643.0
-offset_bottom = 420.0
+[node name="twentyFiveMinutes" type="Button" parent="."]
+layout_mode = 0
+offset_left = -71.0
+offset_top = 18.0
+offset_right = 67.0
+offset_bottom = 96.0
 theme_override_font_sizes/font_size = 18
 text = "25 Minutes"
 
-[node name="fifityMinutes" type="Button" parent="Master"]
-offset_left = 665.0
-offset_top = 342.0
-offset_right = 803.0
-offset_bottom = 420.0
+[node name="fiftyMinutes" type="Button" parent="."]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 18.0
+offset_right = 227.0
+offset_bottom = 96.0
 theme_override_font_sizes/font_size = 18
 text = "50 Minutes"
 
-[node name="Question" type="Label" parent="Master"]
-offset_left = 177.0
-offset_top = 239.0
-offset_right = 982.0
-offset_bottom = 308.0
+[node name="Question" type="Label" parent="."]
+layout_mode = 0
+offset_left = -399.0
+offset_top = -85.0
+offset_right = 406.0
+offset_bottom = -16.0
 theme_override_font_sizes/font_size = 34
 text = "How long do you want your Active Sessions to be"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="error" type="Label" parent="Master"]
-offset_left = 443.0
-offset_top = 564.0
-offset_right = 605.0
-offset_bottom = 612.0
+[node name="error" type="Label" parent="."]
+layout_mode = 0
+offset_left = -133.0
+offset_top = 240.0
+offset_right = 29.0
+offset_bottom = 288.0
 text = "error"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="Master/nextButton" to="Master" method="_on_next_button_pressed"]
-[connection signal="pressed" from="Master/fifteenMinutes" to="Master" method="_on_fifteen_minutes_pressed"]
-[connection signal="pressed" from="Master/twentyFiveMinutes" to="Master" method="_on_twenty_five_minutes_pressed"]
-[connection signal="pressed" from="Master/fifityMinutes" to="Master" method="_on_fifity_minutes_pressed"]
+[connection signal="pressed" from="nextButton" to="Manager" method="_on_next_button_pressed"]
+[connection signal="pressed" from="fifteenMinutes" to="Manager" method="_on_fifteen_minutes_pressed"]
+[connection signal="pressed" from="twentyFiveMinutes" to="Manager" method="_on_twenty_five_minutes_pressed"]
+[connection signal="pressed" from="fiftyMinutes" to="Manager" method="_on_fifity_minutes_pressed"]
