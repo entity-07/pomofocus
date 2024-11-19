@@ -15,29 +15,32 @@ func _ready():
 	print("Break Length: " + str(breakTime) + " secs")
 
 # Define the time left in minutes and seconds
-	var minutes = int(activeSessionTime / 60)
-	var seconds = activeSessionTime % 60
+	var minutes = 0
+	var seconds = 0
 
 # Define a variable that prints those variables in a minute:second format
-	var activeTime = "%02d:%02d" % [minutes, seconds]
-	activeTime = Globals.activeTime
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	label.text = Globals.activeTime
+	var minutes = int(activeSessionTime / 60)
+	var seconds = activeSessionTime % 60
+	var activeTime = "%02d:%02d" % [minutes, seconds]
+	Globals.activeTime = activeTime
+
+	label.text = str(activeTime)
+
 	if activeSessionTime == 0:
 		timeUp = true
 
 	if timeUp == true:
 		pomodoroActive.stop()
+		print("Break Time")
 		label.text = "It's time for your break!"
 		await get_tree().create_timer(5).timeout
 		label.text = str(breakTime)
-		print("Break Time")
 
 func _on_pomodoro_active_timeout():
 	activeSessionTime -= 1
-	label.text = str(activeSessionTime)
 
 func _on_start_button_pressed():
 	pomodoroActive.start()

@@ -21,4 +21,4 @@ Globals="*res://Globals.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg", "res://addons/timer/plugin.cfg")

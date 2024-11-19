@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://r6xw4bwf5jqb"]
+[gd_scene load_steps=3 format=3 uid="uid://r6xw4bwf5jqb"]
 
 [ext_resource type="Script" path="res://scripts/BreakLengthSelector.gd" id="1_5mqyn"]
+
+[sub_resource type="Theme" id="Theme_51nct"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -35,6 +37,7 @@ offset_right = -99.0
 offset_bottom = 76.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = SubResource("Theme_51nct")
 text = "5 Minutes"
 
 [node name="tenMinutes" type="Button" parent="."]
